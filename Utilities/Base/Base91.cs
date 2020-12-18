@@ -45,7 +45,7 @@ namespace Litdex.Utilities.Base
 		/// </summary>
 		/// <param name="input">Array to convert.</param>
 		/// <returns>Encoded String.</returns>
-		public static string EncodeToString(byte[] input)
+		public static string Encode(byte[] input)
 		{
 			var sb = new StringBuilder();
 			var b = 0;
