@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Litdex.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:Litdex.Utilities.Base.Base16">
+            <summary>
+            Encode and decode in base 16 (hexadecimal).
+            </summary>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base16.Encode(System.Byte[],System.Boolean)">
+            <summary>
+            	Encode <paramref name="data"/> to hexadecimal <see cref="T:System.String"/>.
+            </summary>
+            <param name="data">
+            	Arrays of <see cref="T:System.Byte"/> to encode.
+            </param>
+            <param name="upper">
+            	<see langword="true"/> Output <see cref="T:System.String"/> in upper case; <see langword="false"/> otherwise.
+            </param>
+            <returns>
+            	Hexadecimal <see cref="T:System.String"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="data"/> is null or empty.
+            </exception>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base16.EncodeUpper(System.Byte[])">
+            <summary>
+            	Encode arrays of <see cref="T:System.Byte"/> to hexadecimal string in upper case.
+            </summary>
+            <param name="data">
+            	Arrays of <see cref="T:System.Byte"/> to encode.
+            </param>
+            <returns>
+            	Hexadecimal string in upper case.
+            </returns>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base16.EncodeLower(System.Byte[])">
+            <summary>
+            	Encode arrays of <see cref="T:System.Byte"/> to hexadecimal string in lower case.
+            </summary>
+            <param name="data">
+            	Arrays of <see cref="T:System.Byte"/> to encode.
+            </param>
+            <returns>
+            	Hexadecimal string in lower case.
+            </returns>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base16.Decode(System.String)">
+            <summary>
+            	Decode hexadecimal string to arrays of <see cref="T:System.Byte"/>.
+            </summary>
+            <param name="hexString">
+            	Hexadecimal string to decode.
+            </param>
+            <returns>
+            	Arrays of <see cref="T:System.Byte"/> of decoded <paramref name="hexString"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="hexString"/> is null, empty or containing white spaces.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="hexString"/> length is odd.
+            </exception>
+        </member>
+        <member name="T:Litdex.Utilities.Base.Base64">
+            <summary>
+            Encode and decode in base 64.
+            </summary>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base64.Encode(System.Byte[])">
+            <summary>
+            	Converts an array of 8-bit unsigned integers to its 
+            	equivalent string representation that is encoded with 
+            	base-64 digits.
+            </summary>
+            <param name="data">
+            	 An array of 8-bit unsigned integers.
+            </param>
+            <returns>
+            	The string representation, in base 64, of the contents <paramref name="data"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="data"/> is null or empty.
+            </exception>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base64.Decode(System.String)">
+            <summary>
+            	Converts the specified string, 
+            	which encodes binary data as base-64 digits, 
+            	to an equivalent 8-bit unsigned integer array.
+            </summary>
+            <param name="data">
+            	The string to convert.
+            </param>
+            <returns>
+            	An array of 8-bit unsigned integers that is equivalent to <paramref name="data"/>.
+            </returns>
+        </member>
+        <member name="T:Litdex.Utilities.Base.Base85">
+            <summary>
+            Converts between binary data and an Ascii85-encoded string.
+            </summary>
+            <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base85.Encode(System.Byte[])">
+            <summary>
+            Encodes the specified byte array in Ascii85.
+            </summary>
+            <param name="bytes">The bytes to encode.</param>
+            <returns>An Ascii85-encoded string representing the input byte array.</returns>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base85.Decode(System.String)">
+            <summary>
+            Decodes the specified Ascii85 string into the corresponding byte array.
+            </summary>
+            <param name="encoded">The Ascii85 string.</param>
+            <returns>The decoded byte array.</returns>
+        </member>
+        <member name="T:Litdex.Utilities.Base.Base91">
+            <summary>
+            Encode and decode in base91.
+            </summary>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base91.Encode(System.Byte[])">
+            <summary>
+            Convert to Base91 string.
+            </summary>
+            <param name="input">Array to convert.</param>
+            <returns>Encoded String.</returns>
+        </member>
+        <member name="M:Litdex.Utilities.Base.Base91.Decode(System.String)">
+            <summary>
+            Convert Base91 string to original byte[].
+            </summary>
+            <param name="input">Base91 string.</param>
+            <returns>Decoded string.</returns>
+        </member>
+        <member name="T:Litdex.Utilities.Extension.ByteExtension">
+            <summary>
+            Byte[] Extension.
+            </summary>
+        </member>
+        <member name="M:Litdex.Utilities.Extension.ByteExtension.GetString(System.Byte[])">
+            <summary>
+            Convert byte[] to string.
+            Encoding UTF-8.
+            </summary>
+            <param name="bytes">this byte[].</param>
+            <returns>string from byte[].</returns>
+        </member>
+        <member name="M:Litdex.Utilities.Extension.ByteExtension.Clear(System.Array)">
+            <summary>
+            Clear array.
+            </summary>
+            <param name="arr"></param>
+        </member>
+        <member name="T:Litdex.Utilities.Extension.StringExtension">
+            <summary>
+            String Extension
+            </summary>
+        </member>
+        <member name="M:Litdex.Utilities.Extension.StringExtension.FromBase16(System.Char[])">
+            <summary>
+            Convert string to Base16.
+            Encoding UTF-8.
+            </summary>
+            <param name="str">string to convert.</param>
+            <returns>Base16 string.</returns>
+        </member>
+    </members>
+</doc>
