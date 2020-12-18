@@ -30,6 +30,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
+		/// Convert byte[] to string.
+		/// Encoding UTF-8.
+		/// </summary>
+		/// <param name="bytes">this byte[].</param>
+		/// <returns>string from byte[].</returns>
+		public static string GetString(this byte[] bytes)
+		{
+			return System.Text.Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+		}
+
+		/// <summary>
 		/// Clear array.
 		/// </summary>
 		/// <param name="arr"></param>
