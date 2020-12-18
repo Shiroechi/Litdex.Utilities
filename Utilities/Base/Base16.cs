@@ -103,7 +103,7 @@ namespace Litdex.Utilities.Base
 			{
 				throw new ArgumentNullException(nameof(hexString), "Hexadecimal string can't null, empty or containing white spaces.");
 			}
-		
+
 			if (hexString.Length % 2 != 0)
 			{
 				throw new ArgumentOutOfRangeException(nameof(hexString), "The hexadecimal string is invalid because it has an odd length.");
@@ -122,6 +122,6 @@ namespace Litdex.Utilities.Base
 			}
 
 			return result;
-		}	
+		}
 	}
 }
