@@ -8,7 +8,7 @@ namespace Litdex.Utilities.Base
 	/// Converts between binary data and an Ascii85-encoded string.
 	/// </summary>
 	/// <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
-	public static class Ascii85
+	public static class Base85
 	{
 		/// <summary>
 		/// Encodes the specified byte array in Ascii85.
