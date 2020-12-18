@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Shiroechi</Authors>
+    <Product>Litdex.Utilities</Product>
+    <Copyright>Shiroechi</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Shiroechi/Litdex.Utilities</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Shiroechi/Litdex.Utilities</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>D:\Project\C#\Litdex\Litdex.Utilities\Litdex.Utilities.xml</DocumentationFile>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
