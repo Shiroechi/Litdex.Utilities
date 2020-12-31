@@ -3,7 +3,7 @@
 namespace Litdex.Utilities.Base
 {
 	/// <summary>
-	/// Encode and decode in base 64.
+	///		Encode and decode in base 64.
 	/// </summary>
 	public static class Base64
 	{

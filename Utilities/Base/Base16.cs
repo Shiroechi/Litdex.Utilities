@@ -3,7 +3,7 @@
 namespace Litdex.Utilities.Base
 {
 	/// <summary>
-	/// Encode and decode in base 16 (hexadecimal).
+	///		Encode and decode in base 16 (hexadecimal).
 	/// </summary>
 	public static class Base16
 	{

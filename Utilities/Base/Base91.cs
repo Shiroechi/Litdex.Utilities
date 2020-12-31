@@ -5,7 +5,7 @@ using System.Text;
 namespace Litdex.Utilities.Base
 {
 	/// <summary>
-	/// Encode and decode in base91.
+	///		Encode and decode in base91.
 	/// </summary>
 	public static class Base91
 	{
@@ -41,10 +41,14 @@ namespace Litdex.Utilities.Base
 		}
 
 		/// <summary>
-		/// Convert to Base91 string.
+		///		Convert to Base91 string.
 		/// </summary>
-		/// <param name="input">Array to convert.</param>
-		/// <returns>Encoded String.</returns>
+		/// <param name="input">
+		///		Array to convert.
+		///	</param>
+		/// <returns>
+		///		Encoded String.
+		///	</returns>
 		public static string Encode(byte[] input)
 		{
 			var sb = new StringBuilder();
@@ -88,10 +92,14 @@ namespace Litdex.Utilities.Base
 		}
 
 		/// <summary>
-		/// Convert Base91 string to original byte[].
+		///		Convert Base91 string to original byte[].
 		/// </summary>
-		/// <param name="input">Base91 string.</param>
-		/// <returns>Decoded string.</returns>
+		/// <param name="input">
+		///		Base91 string.
+		///	</param>
+		/// <returns>
+		///		Decoded string.
+		///	</returns>
 		public static byte[] Decode(string input)
 		{
 			var output = new List<byte>();

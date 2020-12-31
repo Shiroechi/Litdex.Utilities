@@ -5,16 +5,20 @@ using System.Text;
 namespace Litdex.Utilities.Base
 {
 	/// <summary>
-	/// Converts between binary data and an Ascii85-encoded string.
+	///		Converts between binary data and an Ascii85-encoded string.
 	/// </summary>
 	/// <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
 	public static class Base85
 	{
 		/// <summary>
-		/// Encodes the specified byte array in Ascii85.
+		///		Encodes the specified byte array in Ascii85.
 		/// </summary>
-		/// <param name="bytes">The bytes to encode.</param>
-		/// <returns>An Ascii85-encoded string representing the input byte array.</returns>
+		/// <param name="bytes">
+		///		The bytes to encode.
+		///	</param>
+		/// <returns>
+		///		An Ascii85-encoded string representing the input byte array.
+		///	</returns>
 		public static string Encode(byte[] bytes)
 		{
 			if (bytes == null)
@@ -56,10 +60,14 @@ namespace Litdex.Utilities.Base
 		}
 
 		/// <summary>
-		/// Decodes the specified Ascii85 string into the corresponding byte array.
+		///		Decodes the specified Ascii85 string into the corresponding byte array.
 		/// </summary>
-		/// <param name="encoded">The Ascii85 string.</param>
-		/// <returns>The decoded byte array.</returns>
+		/// <param name="encoded">
+		///		The Ascii85 string.
+		///	</param>
+		/// <returns>
+		///		The decoded byte array.
+		///	</returns>
 		public static byte[] Decode(string encoded)
 		{
 			if (encoded == null)
@@ -171,9 +179,8 @@ namespace Litdex.Utilities.Base
 		}
 
 		// the first and last characters used in the Ascii85 encoding character set
-		const char c_firstCharacter = '!';
-		const char c_lastCharacter = 'u';
-
-		static readonly uint[] s_powersOf85 = new uint[] { 85u * 85u * 85u * 85u, 85u * 85u * 85u, 85u * 85u, 85u, 1 };
+		private const char c_firstCharacter = '!';
+		private const char c_lastCharacter = 'u';
+		private static readonly uint[] s_powersOf85 = new uint[] { 85u * 85u * 85u * 85u, 85u * 85u * 85u, 85u * 85u, 85u, 1 };
 	}
 }
