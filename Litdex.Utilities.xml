@@ -6,7 +6,7 @@
     <members>
         <member name="T:Litdex.Utilities.Base.Base16">
             <summary>
-            Encode and decode in base 16 (hexadecimal).
+            	Encode and decode in base 16 (hexadecimal).
             </summary>
         </member>
         <member name="M:Litdex.Utilities.Base.Base16.Encode(System.Byte[],System.Boolean)">
@@ -67,7 +67,7 @@
         </member>
         <member name="T:Litdex.Utilities.Base.Base64">
             <summary>
-            Encode and decode in base 64.
+            	Encode and decode in base 64.
             </summary>
         </member>
         <member name="M:Litdex.Utilities.Base.Base64.Encode(System.Byte[])">
@@ -101,42 +101,58 @@
         </member>
         <member name="T:Litdex.Utilities.Base.Base85">
             <summary>
-            Converts between binary data and an Ascii85-encoded string.
+            	Converts between binary data and an Ascii85-encoded string.
             </summary>
             <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
         </member>
         <member name="M:Litdex.Utilities.Base.Base85.Encode(System.Byte[])">
             <summary>
-            Encodes the specified byte array in Ascii85.
+            	Encodes the specified byte array in Ascii85.
             </summary>
-            <param name="bytes">The bytes to encode.</param>
-            <returns>An Ascii85-encoded string representing the input byte array.</returns>
+            <param name="bytes">
+            	The bytes to encode.
+            </param>
+            <returns>
+            	An Ascii85-encoded string representing the input byte array.
+            </returns>
         </member>
         <member name="M:Litdex.Utilities.Base.Base85.Decode(System.String)">
             <summary>
-            Decodes the specified Ascii85 string into the corresponding byte array.
+            	Decodes the specified Ascii85 string into the corresponding byte array.
             </summary>
-            <param name="encoded">The Ascii85 string.</param>
-            <returns>The decoded byte array.</returns>
+            <param name="encoded">
+            	The Ascii85 string.
+            </param>
+            <returns>
+            	The decoded byte array.
+            </returns>
         </member>
         <member name="T:Litdex.Utilities.Base.Base91">
             <summary>
-            Encode and decode in base91.
+            	Encode and decode in base91.
             </summary>
         </member>
         <member name="M:Litdex.Utilities.Base.Base91.Encode(System.Byte[])">
             <summary>
-            Convert to Base91 string.
+            	Convert to Base91 string.
             </summary>
-            <param name="input">Array to convert.</param>
-            <returns>Encoded String.</returns>
+            <param name="input">
+            	Array to convert.
+            </param>
+            <returns>
+            	Encoded String.
+            </returns>
         </member>
         <member name="M:Litdex.Utilities.Base.Base91.Decode(System.String)">
             <summary>
-            Convert Base91 string to original byte[].
+            	Convert Base91 string to original byte[].
             </summary>
-            <param name="input">Base91 string.</param>
-            <returns>Decoded string.</returns>
+            <param name="input">
+            	Base91 string.
+            </param>
+            <returns>
+            	Decoded string.
+            </returns>
         </member>
         <member name="T:Litdex.Utilities.Extension.ByteExtension">
             <summary>
