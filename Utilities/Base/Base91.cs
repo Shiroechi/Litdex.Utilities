@@ -41,23 +41,23 @@ namespace Litdex.Utilities.Base
 		}
 
 		/// <summary>
-		///		Convert to Base91 string.
+		///		Convert array of <see cref="byte"/>s to Base91 string.
 		/// </summary>
-		/// <param name="input">
-		///		Array to convert.
+		/// <param name="bytes">
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		Encoded String.
+		///		Base91 <see cref="string"/>.
 		///	</returns>
-		public static string Encode(byte[] input)
+		public static string Encode(byte[] bytes)
 		{
 			var sb = new StringBuilder();
 			var b = 0;
 			var n = 0;
-			var v = 0;
-			for (var i = 0; i < input.Length; i++)
+			int v;
+			for (var i = 0; i < bytes.Length; i++)
 			{
-				b |= (input[i] & 255) << n;
+				b |= (bytes[i] & 255) << n;
 				n += 8;
 				if (n > 13)
 				{
@@ -92,24 +92,24 @@ namespace Litdex.Utilities.Base
 		}
 
 		/// <summary>
-		///		Convert Base91 string to original byte[].
+		///		Convert Base91 <see cref="string"/> to array of <see cref="byte"/>s.
 		/// </summary>
-		/// <param name="input">
-		///		Base91 string.
+		/// <param name="base91String">
+		///		Base91 <see cref="string"/> to decode.
 		///	</param>
 		/// <returns>
-		///		Decoded string.
+		///		Array of <see cref="byte"/>s from <paramref name="base91String"/>.
 		///	</returns>
-		public static byte[] Decode(string input)
+		public static byte[] Decode(string base91String)
 		{
 			var output = new List<byte>();
-			var c = 0;
+			int c;
 			var v = -1;
 			var b = 0;
 			var n = 0;
-			for (var i = 0; i < input.Length; i++)
+			for (var i = 0; i < base91String.Length; i++)
 			{
-				c = DecodeTable[(byte)input[i]];
+				c = DecodeTable[(byte)base91String[i]];
 				if (c == -1)
 				{
 					continue;
