@@ -8,91 +8,91 @@ namespace Litdex.Utilities.Base
 	public static class Base16
 	{
 		/// <summary>
-		///		Encode <paramref name="data"/> to hexadecimal <see cref="string"/>.
+		///		Encode <paramref name="bytes"/> to hexadecimal <see cref="string"/>.
 		/// </summary>
-		/// <param name="data">
-		///		Arrays of <see cref="byte"/> to encode.
+		/// <param name="bytes">
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
-		/// <param name="upper">
-		///		<see langword="true"/> Output <see cref="string"/> in upper case; <see langword="false"/> otherwise.
+		/// <param name="upperCase">
+		///		Hexadecimal output <see cref="string"/> letter case. Default is <see langword="true"/> to upper case.
 		///	</param>
 		/// <returns>
 		///		Hexadecimal <see cref="string"/>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		///		<paramref name="data"/> is null or empty.
+		///		<paramref name="bytes"/> is null or empty.
 		/// </exception>
-		public static string Encode(byte[] data, bool upper = true)
+		public static string Encode(byte[] bytes, bool upperCase = true)
 		{
-			if (data == null || data.Length == 0)
+			if (bytes == null || bytes.Length == 0)
 			{
-				throw new ArgumentNullException(nameof(data), "Array can't null or empty.");
+				throw new ArgumentNullException(nameof(bytes), "Array can't null or empty.");
 			}
 
-			if (upper)
+			if (upperCase)
 			{
-				return EncodeUpper(data);
+				return EncodeUpper(bytes);
 			}
-			return EncodeLower(data);
+			return EncodeLower(bytes);
 		}
 
 		/// <summary>
-		///		Encode arrays of <see cref="byte"/> to hexadecimal string in upper case.
+		///		Encode array of <see cref="byte"/>s to hexadecimal <see cref="string"/> in upper case.
 		/// </summary>
-		/// <param name="data">
-		///		Arrays of <see cref="byte"/> to encode.
+		/// <param name="bytes">
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		Hexadecimal string in upper case.
+		///		Hexadecimal <see cref="string"/> in upper case.
 		/// </returns>
-		private static string EncodeUpper(byte[] data)
+		private static string EncodeUpper(byte[] bytes)
 		{
-			var c = new char[data.Length * 2];
+			var c = new char[bytes.Length * 2];
 			int b;
-			for (var i = 0; i < data.Length; i++)
+			for (var i = 0; i < bytes.Length; i++)
 			{
-				b = data[i] >> 4;
+				b = bytes[i] >> 4;
 				c[i * 2] = (char)(55 + b + (((b - 10) >> 31) & -7));
-				b = data[i] & 0xF;
+				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
 			}
 			return new string(c);
 		}
 
 		/// <summary>
-		///		Encode arrays of <see cref="byte"/> to hexadecimal string in lower case.
+		///		Encode array of <see cref="byte"/>s to hexadecimal string in lower case.
 		/// </summary>
-		/// <param name="data">
-		///		Arrays of <see cref="byte"/> to encode.
+		/// <param name="bytes">
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		Hexadecimal string in lower case.
+		///		Hexadecimal <see cref="string"/> in lower case.
 		/// </returns>
-		private static string EncodeLower(byte[] data)
+		private static string EncodeLower(byte[] bytes)
 		{
-			var c = new char[data.Length * 2];
+			var c = new char[bytes.Length * 2];
 			int b;
-			for (var i = 0; i < data.Length; i++)
+			for (var i = 0; i < bytes.Length; i++)
 			{
-				b = data[i] >> 4;
+				b = bytes[i] >> 4;
 				c[i * 2] = (char)(87 + b + (((b - 10) >> 31) & -39));
-				b = data[i] & 0xF;
+				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(87 + b + (((b - 10) >> 31) & -39));
 			}
 			return new string(c);
 		}
 
 		/// <summary>
-		///		Decode hexadecimal string to arrays of <see cref="byte"/>.
+		///		Decode hexadecimal <see cref="string"/> to array of <see cref="byte"/>a.
 		/// </summary>
 		/// <param name="hexString">
-		///		Hexadecimal string to decode.
+		///		Hexadecimal <see cref="string"/> to decode.
 		///	</param>
 		/// <returns>
-		///		Arrays of <see cref="byte"/> of decoded <paramref name="hexString"/>.
+		///		Array of <see cref="byte"/>s from decoded <paramref name="hexString"/>.
 		/// </returns>
 		/// <exception cref="ArgumentNullException">
-		///		<paramref name="hexString"/> is null, empty or containing white spaces.
+		///		<paramref name="hexString"/> is null, empty or only containing white spaces.
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
 		///		<paramref name="hexString"/> length is odd.
@@ -117,10 +117,8 @@ namespace Litdex.Utilities.Base
 				int low = hexString[i * 2 + 1];
 				high = (high & 0xf) + ((high & 0x40) >> 6) * 9;
 				low = (low & 0xf) + ((low & 0x40) >> 6) * 9;
-
 				result[i] = (byte)((high << 4) | low);
 			}
-
 			return result;
 		}
 	}
