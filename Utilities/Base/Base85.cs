@@ -11,27 +11,31 @@ namespace Litdex.Utilities.Base
 	public static class Base85
 	{
 		/// <summary>
-		///		Encodes the specified byte array in Ascii85.
+		///		Encodes the specified array of <see cref="byte"/>s in Ascii85.
 		/// </summary>
 		/// <param name="bytes">
-		///		The bytes to encode.
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		An Ascii85-encoded string representing the input byte array.
+		///		An Ascii85-encoded <see cref="string"/> representing the input byte array.
 		///	</returns>
+		/// <exception cref="ArgumentNullException">
+		///		<paramref name="bytes"/> is null or empty.
+		/// </exception>
 		public static string Encode(byte[] bytes)
 		{
-			if (bytes == null)
+			if (bytes == null || bytes.Length == 0)
 			{
-				throw new ArgumentNullException("bytes");
+				throw new ArgumentNullException(nameof(bytes), "Array can't null or empty.");
 			}
+
 			// preallocate a StringBuilder with enough room to store the encoded bytes
 			var sb = new StringBuilder(bytes.Length * 5 / 4);
 
 			// walk the bytes
 			int count = 0;
 			uint value = 0;
-			foreach (byte b in bytes)
+			foreach (var b in bytes)
 			{
 				// build a 32-bit value from the bytes
 				value |= ((uint)b) << (24 - (count * 8));
@@ -54,19 +58,17 @@ namespace Litdex.Utilities.Base
 			{
 				EncodeValue(sb, value, 4 - count);
 			}
-			var output = sb.ToString();
-			sb.Clear();
-			return output;
+			return sb.ToString();
 		}
 
 		/// <summary>
-		///		Decodes the specified Ascii85 string into the corresponding byte array.
+		///		Decodes the specified Ascii85 <see cref="string"/> into the corresponding array of <see cref="byte"/>s.
 		/// </summary>
 		/// <param name="encoded">
 		///		The Ascii85 string.
 		///	</param>
 		/// <returns>
-		///		The decoded byte array.
+		///		Array of <see cref="byte"/>s from decoded <paramref name="encoded"/>.	
 		///	</returns>
 		public static byte[] Decode(string encoded)
 		{
@@ -74,7 +76,7 @@ namespace Litdex.Utilities.Base
 			{
 				throw new ArgumentNullException("encoded");
 			}
-			byte[] result = null;
+
 			// preallocate a memory stream with enough capacity to hold the decoded data
 			using (var stream = new MemoryStream(encoded.Length * 4 / 5))
 			{
@@ -131,7 +133,9 @@ namespace Litdex.Utilities.Base
 						try
 						{
 							checked
-							{ value += 84 * s_powersOf85[padding]; }
+							{ 
+								value += 84 * s_powersOf85[padding]; 
+							}
 						}
 						catch (OverflowException ex)
 						{
@@ -140,10 +144,8 @@ namespace Litdex.Utilities.Base
 					}
 					DecodeValue(stream, value, 5 - count);
 				}
-
-				result = stream.ToArray();
+				return stream.ToArray();
 			}
-			return result;
 		}
 
 		// Writes the Ascii85 characters for a 32-bit value to a StringBuilder.
