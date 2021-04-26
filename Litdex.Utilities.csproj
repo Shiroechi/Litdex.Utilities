@@ -1,17 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>Shiroechi</Authors>
     <Product>Litdex.Utilities</Product>
     <Copyright>Shiroechi</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/Shiroechi/Litdex.Utilities</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Shiroechi/Litdex.Utilities</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <RootNamespace>Litdex</RootNamespace>
+    <Version>1.1.0</Version>
+    <PackageTags>Base16 Base85 Base91</PackageTags>
+    <Description>Utilities module for Litdex.</Description>
+    <Company>Litdex</Company>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,6 +28,10 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

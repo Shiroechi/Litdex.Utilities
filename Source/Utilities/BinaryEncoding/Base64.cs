@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Litdex.Utilities.Base
+namespace Litdex.Utilities.BinaryEncoding
 {
 	/// <summary>
 	///		Encode and decode in base 64.
@@ -42,6 +42,10 @@ namespace Litdex.Utilities.Base
 		/// <returns>
 		///		An array of 8-bit unsigned integers that is equivalent to <paramref name="data"/>.
 		///	</returns>
+		///	<exception cref="ArgumentNullException">
+		///	</exception>
+		///	<exception cref="FormatException">
+		///	</exception>
 		public static byte[] Decode(string data)
 		{
 			return System.Convert.FromBase64String(data);

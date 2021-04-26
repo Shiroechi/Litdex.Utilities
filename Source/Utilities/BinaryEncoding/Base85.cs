@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace Litdex.Utilities.Base
+namespace Litdex.Utilities.BinaryEncoding
 {
 	/// <summary>
 	///		Converts between binary data and an Ascii85-encoded string.
@@ -10,28 +10,37 @@ namespace Litdex.Utilities.Base
 	/// <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
 	public static class Base85
 	{
+		// the first and last characters used in the Ascii85 encoding character set
+		private const char c_firstCharacter = '!';
+		private const char c_lastCharacter = 'u';
+		private static readonly uint[] s_powersOf85 = new uint[] { 85u * 85u * 85u * 85u, 85u * 85u * 85u, 85u * 85u, 85u, 1 };
+
 		/// <summary>
-		///		Encodes the specified byte array in Ascii85.
+		///		Encodes the specified array of <see cref="byte"/>s in Ascii85.
 		/// </summary>
 		/// <param name="bytes">
-		///		The bytes to encode.
+		///		Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		An Ascii85-encoded string representing the input byte array.
+		///		An Ascii85-encoded <see cref="string"/> representing the input byte array.
 		///	</returns>
+		/// <exception cref="ArgumentNullException">
+		///		<paramref name="bytes"/> is null or empty.
+		/// </exception>
 		public static string Encode(byte[] bytes)
 		{
-			if (bytes == null)
+			if (bytes == null || bytes.Length == 0)
 			{
-				throw new ArgumentNullException("bytes");
+				throw new ArgumentNullException(nameof(bytes), "Array can't null or empty.");
 			}
+
 			// preallocate a StringBuilder with enough room to store the encoded bytes
 			var sb = new StringBuilder(bytes.Length * 5 / 4);
 
 			// walk the bytes
 			int count = 0;
 			uint value = 0;
-			foreach (byte b in bytes)
+			foreach (var b in bytes)
 			{
 				// build a 32-bit value from the bytes
 				value |= ((uint)b) << (24 - (count * 8));
@@ -54,27 +63,28 @@ namespace Litdex.Utilities.Base
 			{
 				EncodeValue(sb, value, 4 - count);
 			}
-			var output = sb.ToString();
-			sb.Clear();
-			return output;
+			return sb.ToString();
 		}
 
 		/// <summary>
-		///		Decodes the specified Ascii85 string into the corresponding byte array.
+		///		Decodes the specified Ascii85 <see cref="string"/> into the corresponding array of <see cref="byte"/>s.
 		/// </summary>
 		/// <param name="encoded">
 		///		The Ascii85 string.
 		///	</param>
 		/// <returns>
-		///		The decoded byte array.
+		///		Array of <see cref="byte"/>s from decoded <paramref name="encoded"/>.	
 		///	</returns>
+		///	<exception cref="ArgumentNullException">
+		///		
+		/// </exception>
 		public static byte[] Decode(string encoded)
 		{
-			if (encoded == null)
+			if (encoded == null || encoded.Length == 0)
 			{
-				throw new ArgumentNullException("encoded");
+				throw new ArgumentNullException(nameof(encoded), "Encoded array of bytes can't null or empty.");
 			}
-			byte[] result = null;
+
 			// preallocate a memory stream with enough capacity to hold the decoded data
 			using (var stream = new MemoryStream(encoded.Length * 4 / 5))
 			{
@@ -131,7 +141,9 @@ namespace Litdex.Utilities.Base
 						try
 						{
 							checked
-							{ value += 84 * s_powersOf85[padding]; }
+							{
+								value += 84 * s_powersOf85[padding];
+							}
 						}
 						catch (OverflowException ex)
 						{
@@ -140,10 +152,8 @@ namespace Litdex.Utilities.Base
 					}
 					DecodeValue(stream, value, 5 - count);
 				}
-
-				result = stream.ToArray();
+				return stream.ToArray();
 			}
-			return result;
 		}
 
 		// Writes the Ascii85 characters for a 32-bit value to a StringBuilder.
@@ -158,8 +168,9 @@ namespace Litdex.Utilities.Base
 			}
 
 			if (paddingBytes != 0)
+			{
 				Array.Resize(ref encoded, 5 - paddingBytes);
-
+			}
 			sb.Append(encoded);
 		}
 
@@ -167,20 +178,27 @@ namespace Litdex.Utilities.Base
 		private static void DecodeValue(Stream stream, uint value, int paddingChars)
 		{
 			stream.WriteByte((byte)(value >> 24));
+
 			if (paddingChars == 3)
+			{
 				return;
+			}
+
 			stream.WriteByte((byte)((value >> 16) & 0xFF));
+
 			if (paddingChars == 2)
+			{
 				return;
+			}
+
 			stream.WriteByte(((byte)((value >> 8) & 0xFF)));
+
 			if (paddingChars == 1)
+			{
 				return;
+			}
+
 			stream.WriteByte((byte)(value & 0xFF));
 		}
-
-		// the first and last characters used in the Ascii85 encoding character set
-		private const char c_firstCharacter = '!';
-		private const char c_lastCharacter = 'u';
-		private static readonly uint[] s_powersOf85 = new uint[] { 85u * 85u * 85u * 85u, 85u * 85u * 85u, 85u * 85u, 85u, 1 };
 	}
 }
