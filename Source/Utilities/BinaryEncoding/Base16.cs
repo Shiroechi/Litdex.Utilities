@@ -56,7 +56,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
 			}
-			return new string(c);
+			return c.ToString();
 		}
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(87 + b + (((b - 10) >> 31) & -39));
 			}
-			return new string(c);
+			return c.ToString();
 		}
 
 		/// <summary>
@@ -104,17 +104,19 @@ namespace Litdex.Utilities.BinaryEncoding
 				throw new ArgumentNullException(nameof(hexString), "Hexadecimal string can't null, empty or containing white spaces.");
 			}
 
-			if (hexString.Length % 2 != 0)
+			if ((hexString.Length & 1) != 0)
 			{
 				throw new ArgumentOutOfRangeException(nameof(hexString), "The hexadecimal string is invalid because it has an odd length.");
 			}
 
 			var result = new byte[hexString.Length / 2];
 
+			int high, low;
+
 			for (var i = 0; i < result.Length; i++)
 			{
-				int high = hexString[i * 2];
-				int low = hexString[i * 2 + 1];
+				high = hexString[i * 2];
+				low = hexString[i * 2 + 1];
 				high = (high & 0xf) + ((high & 0x40) >> 6) * 9;
 				low = (low & 0xf) + ((low & 0x40) >> 6) * 9;
 				result[i] = (byte)((high << 4) | low);
