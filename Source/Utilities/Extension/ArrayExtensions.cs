@@ -74,7 +74,7 @@ namespace Litdex.Utilities.Extension
 
 			if (length < 0)
 			{
-				throw new ArgumentOutOfRangeException(nameof(start), "Requested length can't be negative, must positive number.");
+				throw new ArgumentOutOfRangeException(nameof(length), "Requested length can't be negative, must positive number.");
 			}
 
 			if (start > array.Length)
