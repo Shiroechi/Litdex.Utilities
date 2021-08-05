@@ -123,5 +123,47 @@ namespace Litdex.Utilities.BinaryEncoding
 			}
 			return result;
 		}
+
+		/// <summary>
+		///		Decode hexadecimal <see cref="string"/> to array of <see cref="byte"/>s.
+		/// </summary>
+		/// <param name="hexString">
+		///		Hexadecimal <see cref="string"/> to decode.
+		///	</param>
+		/// <returns>
+		///		Array of <see cref="byte"/>s from decoded <paramref name="hexString"/>.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		///		<paramref name="hexString"/> is null, empty or only containing white spaces.
+		/// </exception>
+		/// <exception cref="ArgumentOutOfRangeException">
+		///		<paramref name="hexString"/> length is odd.
+		/// </exception>
+		public static byte[] Decode(char[] hexString)
+		{
+			if (hexString.Length == 0 || hexString == null)
+			{
+				throw new ArgumentNullException(nameof(hexString), "Hexadecimal string can't null, empty or containing white spaces.");
+			}
+
+			if ((hexString.Length & 1) != 0)
+			{
+				throw new ArgumentOutOfRangeException(nameof(hexString), "The hexadecimal string is invalid because it has an odd length.");
+			}
+
+			var result = new byte[hexString.Length / 2];
+
+			int high, low;
+
+			for (var i = 0; i < result.Length; i++)
+			{
+				high = hexString[i * 2];
+				low = hexString[i * 2 + 1];
+				high = (high & 0xf) + ((high & 0x40) >> 6) * 9;
+				low = (low & 0xf) + ((low & 0x40) >> 6) * 9;
+				result[i] = (byte)((high << 4) | low);
+			}
+			return result;
+		}
 	}
 }
