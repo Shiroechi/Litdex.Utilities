@@ -56,7 +56,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(55 + b + (((b - 10) >> 31) & -7));
 			}
-			return c.ToString();
+			return new string(c);
 		}
 
 		/// <summary>
@@ -79,7 +79,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				b = bytes[i] & 0xF;
 				c[(i * 2) + 1] = (char)(87 + b + (((b - 10) >> 31) & -39));
 			}
-			return c.ToString();
+			return new string(c);
 		}
 
 		/// <summary>
