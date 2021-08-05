@@ -18,5 +18,19 @@
 		{
 			return System.Text.Encoding.UTF8.GetBytes(str);
 		}
+	
+		/// <summary>
+		///		Convert array of <see cref="char"/> to an array of <see cref="byte"/>.
+		/// </summary>
+		/// <param name="str">
+		///		A array of <see cref="char"/> to convert.
+		/// </param>
+		/// <returns>
+		///		An array of <see cref="byte"/>s from array of <see cref="char"/>.
+		///	</returns>
+		public static byte[] GetBytes(this char[] str)
+		{
+			return System.Text.Encoding.UTF8.GetBytes(str);
+		}
 	}
 }
