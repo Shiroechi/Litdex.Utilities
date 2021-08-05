@@ -39,7 +39,7 @@ namespace Litdex.Utilities
 		///		3 (for MD5 hashing) or 5 (for SHA-1 hashing).
 		///	</param>
 		/// <returns>
-		///		A UUID derived from the namespace and name.
+		///		A UUID derived from the <paramref name="namespaceId"/> and <paramref name="name"/>.
 		///	</returns>
 		///	<exception cref="ArgumentNullException">
 		///		Name can't null.
