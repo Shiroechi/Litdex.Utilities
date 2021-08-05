@@ -152,7 +152,7 @@ namespace Litdex.Utilities.Extension
 		///	</returns>
 		public static byte[] DecodeBase16(this char[] str)
 		{
-			return Base16.Decode(new string(str));
+			return Base16.Decode(str);
 		}
 
 		/// <summary>
