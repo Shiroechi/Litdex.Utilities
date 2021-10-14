@@ -13,21 +13,21 @@
     <RepositoryUrl>https://github.com/Shiroechi/Litdex.Utilities</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <RootNamespace>Litdex</RootNamespace>
-    <Version>1.1.0</Version>
-    <PackageTags>Base16 Base85 Base91</PackageTags>
+    <Version>1.1.1</Version>
+    <PackageTags>Base16 Base85 Base91 Extension</PackageTags>
     <Description>Utilities module for Litdex.</Description>
     <Company>Litdex</Company>
     <OutputType>Library</OutputType>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>D:\Project\C#\Litdex\Litdex.Utilities\Litdex.Utilities.xml</DocumentationFile>
+    <DocumentationFile>.\Litdex.Utilities.xml</DocumentationFile>
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
