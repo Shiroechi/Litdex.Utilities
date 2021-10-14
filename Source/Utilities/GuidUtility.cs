@@ -63,7 +63,7 @@ namespace Litdex.Utilities
 			var namespaceBytes = namespaceId.ToByteArray();
 			SwapByteOrder(namespaceBytes);
 
-			// compute the hash of the name space ID concatenated with the name (step 4)
+			// compute the hash of the namespace ID concatenated with the name (step 4)
 			byte[] guid;
 			using (HashAlgorithm algorithm = version == 3 ? (HashAlgorithm)MD5.Create() : SHA1.Create())
 			{

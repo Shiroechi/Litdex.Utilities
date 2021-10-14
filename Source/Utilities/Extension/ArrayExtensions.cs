@@ -39,7 +39,6 @@ namespace Litdex.Utilities.Extension
 		/// </exception>
 		public static T[] Slice<T>(this T[] array, int start)
 		{
-			//return array.Slice(start, array.Length - start);
 			return ArrayExtensions.Slice(array, start, array.Length - start);
 		}
 
