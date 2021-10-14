@@ -31,9 +31,17 @@ namespace Litdex.Utilities.BinaryEncoding
 
 			if (upperCase)
 			{
+#if NET5_0_OR_GREATER
+				return Convert.ToHexString(bytes);
+#else
 				return EncodeUpper(bytes);
+#endif
 			}
+#if NET5_0_OR_GREATER
+			return Convert.ToHexString(bytes).ToLower();
+#else
 			return EncodeLower(bytes);
+#endif
 		}
 
 		/// <summary>
