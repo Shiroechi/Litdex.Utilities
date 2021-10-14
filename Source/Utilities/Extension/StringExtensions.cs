@@ -18,7 +18,7 @@
 		{
 			return System.Text.Encoding.UTF8.GetBytes(str);
 		}
-	
+
 		/// <summary>
 		///		Convert array of <see cref="char"/> to an array of <see cref="byte"/>.
 		/// </summary>
