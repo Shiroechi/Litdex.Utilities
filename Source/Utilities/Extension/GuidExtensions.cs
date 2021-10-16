@@ -11,6 +11,20 @@ namespace Litdex.Utilities.Extension
 	public static class GuidExtensions
 	{
 		/// <summary>
+		///		Converts a GUID to a lowercase string with no dashes.
+		/// </summary>
+		/// <param name="guid">
+		///		The GUID.
+		///	</param>
+		/// <returns>
+		///		The GUID as a lowercase string with no dashes.
+		///	</returns>
+		public static string ToLowerNoDashString(this Guid guid)
+		{
+			return guid.ToString("N");
+		}
+
+		/// <summary>
 		///		Creates a name-based UUID version 5 using the algorithm from RFC 4122 §4.3.
 		/// </summary>
 		/// <param name="namespaceId">
