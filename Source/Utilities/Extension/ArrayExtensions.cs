@@ -39,7 +39,6 @@ namespace Litdex.Utilities.Extension
 		/// </exception>
 		public static T[] Slice<T>(this T[] array, int start)
 		{
-			//return array.Slice(start, array.Length - start);
 			return ArrayExtensions.Slice(array, start, array.Length - start);
 		}
 
@@ -74,7 +73,7 @@ namespace Litdex.Utilities.Extension
 
 			if (length < 0)
 			{
-				throw new ArgumentOutOfRangeException(nameof(start), "Requested length can't be negative, must positive number.");
+				throw new ArgumentOutOfRangeException(nameof(length), "Requested length can't be negative, must positive number.");
 			}
 
 			if (start > array.Length)
@@ -87,11 +86,21 @@ namespace Litdex.Utilities.Extension
 				throw new ArgumentOutOfRangeException(nameof(length), "Requested length can't exceed from remaining length of array after the start index.");
 			}
 
+#if NET5_0_OR_GREATER
+
+			var span = new Span<T>(array);
+
+			return span.Slice(start, length).ToArray();
+
+#else
+
 			var temp = new T[length];
 
 			Array.Copy(array, start, temp, 0, length);
 
 			return temp;
+
+#endif
 		}
 
 		/// <summary>
@@ -131,5 +140,6 @@ namespace Litdex.Utilities.Extension
 
 			return temp;
 		}
+
 	}
 }

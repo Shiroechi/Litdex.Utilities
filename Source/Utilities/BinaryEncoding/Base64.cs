@@ -28,7 +28,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				throw new ArgumentNullException(nameof(data), "Array is null or empty.");
 			}
 
-			return System.Convert.ToBase64String(data);
+			return Convert.ToBase64String(data);
 		}
 
 		/// <summary>
@@ -48,7 +48,7 @@ namespace Litdex.Utilities.BinaryEncoding
 		///	</exception>
 		public static byte[] Decode(string data)
 		{
-			return System.Convert.FromBase64String(data);
+			return Convert.FromBase64String(data);
 		}
 	}
 }

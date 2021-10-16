@@ -65,6 +65,23 @@
             	<paramref name="hexString"/> length is odd.
             </exception>
         </member>
+        <member name="M:Litdex.Utilities.BinaryEncoding.Base16.Decode(System.Char[])">
+            <summary>
+            	Decode hexadecimal <see cref="T:System.String"/> to array of <see cref="T:System.Byte"/>s.
+            </summary>
+            <param name="hexString">
+            	Hexadecimal <see cref="T:System.String"/> to decode.
+            </param>
+            <returns>
+            	Array of <see cref="T:System.Byte"/>s from decoded <paramref name="hexString"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            	<paramref name="hexString"/> is null, empty or only containing white spaces.
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            	<paramref name="hexString"/> length is odd.
+            </exception>
+        </member>
         <member name="T:Litdex.Utilities.BinaryEncoding.Base64">
             <summary>
             	Encode and decode in base 64.
@@ -712,6 +729,17 @@
             	An array of <see cref="T:System.Byte"/>s from <see cref="T:System.String"/>.
             </returns>
         </member>
+        <member name="M:Litdex.Utilities.Extension.StringExtension.GetBytes(System.Char[])">
+            <summary>
+            	Convert array of <see cref="T:System.Char"/> to an array of <see cref="T:System.Byte"/>.
+            </summary>
+            <param name="str">
+            	A array of <see cref="T:System.Char"/> to convert.
+            </param>
+            <returns>
+            	An array of <see cref="T:System.Byte"/>s from array of <see cref="T:System.Char"/>.
+            </returns>
+        </member>
         <member name="T:Litdex.Utilities.GuidUtility">
             <summary>
             	Helper methods for working with <see cref="T:System.Guid"/>.
@@ -747,7 +775,7 @@
             	3 (for MD5 hashing) or 5 (for SHA-1 hashing).
             </param>
             <returns>
-            	A UUID derived from the namespace and name.
+            	A UUID derived from the <paramref name="namespaceId"/> and <paramref name="name"/>.
             </returns>
             <exception cref="T:System.ArgumentNullException">
             	Name can't null.

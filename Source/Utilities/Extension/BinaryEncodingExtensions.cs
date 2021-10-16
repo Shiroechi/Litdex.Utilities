@@ -88,7 +88,7 @@ namespace Litdex.Utilities.Extension
 		/// </returns>
 		public static string ToBase16(this string text, bool upperCase = true)
 		{
-			return text.GetBytes().ToBase16(upperCase);
+			return Base16.Encode(text.GetBytes(), upperCase);
 		}
 
 		/// <summary>
@@ -102,7 +102,7 @@ namespace Litdex.Utilities.Extension
 		/// </returns>
 		public static string ToBase64(this string text)
 		{
-			return text.GetBytes().ToBase64();
+			return Base64.Encode(text.GetBytes());
 		}
 
 		/// <summary>
@@ -116,7 +116,7 @@ namespace Litdex.Utilities.Extension
 		/// </returns>
 		public static string ToBase85(this string text)
 		{
-			return text.GetBytes().ToBase85();
+			return Base85.Encode(text.GetBytes());
 		}
 
 		/// <summary>
@@ -130,7 +130,7 @@ namespace Litdex.Utilities.Extension
 		/// </returns>
 		public static string ToBase91(this string text)
 		{
-			return text.GetBytes().ToBase91();
+			return Base91.Encode(text.GetBytes());
 		}
 
 		#endregion From string to string
@@ -152,7 +152,7 @@ namespace Litdex.Utilities.Extension
 		///	</returns>
 		public static byte[] DecodeBase16(this char[] str)
 		{
-			return Base16.Decode(new string(str));
+			return Base16.Decode(str);
 		}
 
 		/// <summary>
