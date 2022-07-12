@@ -6,46 +6,49 @@ using Litdex.Utilities.Extension;
 namespace Litdex.Utilities
 {
 	/// <summary>
-	///		Helper methods for working with <see cref="Guid"/>.
+	///	Helper methods for working with <see cref="Guid"/>.
 	/// </summary>
+	/// <remarks>
+	///	Source: https://github.com/LogosBible/Logos.Utility/blob/master/src/Logos.Utility/GuidUtility.cs
+	/// </remarks>
 	public static class GuidUtility
 	{
 		/// <summary>
-		///		The namespace for fully-qualified domain names (from RFC 4122, Appendix C).
+		///	The namespace for fully-qualified domain names (from RFC 4122, Appendix C).
 		/// </summary>
 		public static readonly Guid DnsNamespace = new Guid("6ba7b810-9dad-11d1-80b4-00c04fd430c8");
 
 		/// <summary>
-		///		The namespace for URLs (from RFC 4122, Appendix C).
+		///	The namespace for URLs (from RFC 4122, Appendix C).
 		/// </summary>
 		public static readonly Guid UrlNamespace = new Guid("6ba7b811-9dad-11d1-80b4-00c04fd430c8");
 
 		/// <summary>
-		///		The namespace for ISO OIDs (from RFC 4122, Appendix C).
+		///	The namespace for ISO OIDs (from RFC 4122, Appendix C).
 		/// </summary>
 		public static readonly Guid IsoOidNamespace = new Guid("6ba7b812-9dad-11d1-80b4-00c04fd430c8");
 
 		/// <summary>
-		///		Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
+		///	Creates a name-based UUID using the algorithm from RFC 4122 §4.3.
 		/// </summary>
 		/// <param name="namespaceId">
-		///		The ID of the namespace.
+		///	The ID of the namespace.
 		///	</param>
 		/// <param name="name">
-		///		The name (within that namespace).
+		///	The name (within that namespace).
 		///	</param>
 		///	<param name="version">
-		///		The version number of the UUID to create; this value must be either
-		///		3 (for MD5 hashing) or 5 (for SHA-1 hashing).
+		///	The version number of the UUID to create; this value must be either
+		///	3 (for MD5 hashing) or 5 (for SHA-1 hashing).
 		///	</param>
 		/// <returns>
-		///		A UUID derived from the <paramref name="namespaceId"/> and <paramref name="name"/>.
+		///	A UUID derived from the <paramref name="namespaceId"/> and <paramref name="name"/>.
 		///	</returns>
 		///	<exception cref="ArgumentNullException">
-		///		Name can't null.
+		///	Name can't null.
 		/// </exception>
 		/// <exception cref="ArgumentOutOfRangeException">
-		///		Version must be either 3 or 5.
+		///	Version must be either 3 or 5.
 		/// </exception>
 		public static Guid Create(Guid namespaceId, string name, int version)
 		{
@@ -65,7 +68,18 @@ namespace Litdex.Utilities
 
 			// compute the hash of the namespace ID concatenated with the name (step 4)
 			byte[] guid;
-			using (HashAlgorithm algorithm = version == 3 ? (HashAlgorithm)MD5.Create() : SHA1.Create())
+			HashAlgorithm algo;
+
+			if (version == 3)
+			{
+				algo = MD5.Create();
+			}
+			else
+			{
+				algo = SHA1.Create();
+			}
+
+			using (HashAlgorithm algorithm = algo)
 			{
 				algorithm.TransformBlock(namespaceBytes, 0, namespaceBytes.Length, null, 0);
 				algorithm.TransformFinalBlock(name.GetBytes(), 0, name.Length);
@@ -93,7 +107,7 @@ namespace Litdex.Utilities
 		}
 
 		/// <summary>
-		///		Converts a GUID (expressed as a byte array) to/from network order (MSB-first).
+		///	Converts a GUID (expressed as a byte array) to/from network order (MSB-first).
 		/// </summary>
 		/// <param name="guid">
 		///		
