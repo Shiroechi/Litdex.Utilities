@@ -5,7 +5,7 @@ using System.Text;
 namespace Litdex.Utilities.BinaryEncoding
 {
 	/// <summary>
-	///		Encode and decode in base91.
+	///	Encode and decode in base91.
 	/// </summary>
 	public static class Base91
 	{
@@ -41,16 +41,16 @@ namespace Litdex.Utilities.BinaryEncoding
 		}
 
 		/// <summary>
-		///		Convert array of <see cref="byte"/>s to Base91 string.
+		///	Convert array of <see cref="byte"/>s to Base91 string.
 		/// </summary>
 		/// <param name="bytes">
-		///		Array of <see cref="byte"/>s to encode.
+		///	Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		Base91 <see cref="string"/>.
+		///	Base91 <see cref="string"/>.
 		///	</returns>
 		///	<exception cref="ArgumentNullException">
-		///		<paramref name="bytes"/> can't null or empty.
+		///	<paramref name="bytes"/> can't null or empty.
 		/// </exception>
 		public static string Encode(byte[] bytes)
 		{
@@ -100,16 +100,16 @@ namespace Litdex.Utilities.BinaryEncoding
 		}
 
 		/// <summary>
-		///		Convert Base91 <see cref="string"/> to array of <see cref="byte"/>s.
+		///	Convert Base91 <see cref="string"/> to array of <see cref="byte"/>s.
 		/// </summary>
 		/// <param name="base91String">
-		///		Base91 <see cref="string"/> to decode.
+		///	Base91 <see cref="string"/> to decode.
 		///	</param>
 		/// <returns>
-		///		Array of <see cref="byte"/>s from <paramref name="base91String"/>.
+		///	Array of <see cref="byte"/>s from <paramref name="base91String"/>.
 		///	</returns>
 		///	<exception cref="ArgumentNullException">
-		///		<paramref name="base91String"/> can't null or empty.
+		///	<paramref name="base91String"/> can't null or empty.
 		///	</exception>
 		public static byte[] Decode(string base91String)
 		{

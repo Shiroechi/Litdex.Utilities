@@ -5,24 +5,24 @@ using System.Numerics;
 namespace Litdex.Utilities.Extension
 {
 	/// <summary>
-	///		Integer extensions.
+	///	Integer extensions.
 	/// </summary>
 	public static class NumericExtensions
 	{
 		#region Rotate Left
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		///	The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static byte RotateLeft(this byte value, byte shiftBit)
 		{
@@ -30,17 +30,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		///	The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		/// The rotated value.
 		/// </returns>
 		public static short RotateLeft(this short value, short shiftBit)
 		{
@@ -48,17 +48,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		///	The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static ushort RotateLeft(this ushort value, ushort shiftBit)
 		{
@@ -66,17 +66,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		///	The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static int RotateLeft(this int value, int shiftBit)
 		{
@@ -84,17 +84,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		///	The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static uint RotateLeft(this uint value, int shiftBit)
 		{
@@ -106,17 +106,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		/// The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static long RotateLeft(this long value, int shiftBit)
 		{
@@ -124,17 +124,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value left by the specified number of bits.
+		///	Rotates the specified value left by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..31] is treated
-		///     as congruent mod 32.
+		/// The number of bits to rotate by. Any value outside the range [0..31] is treated
+		/// as congruent mod 32.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static ulong RotateLeft(this ulong value, int shiftBit)
 		{
@@ -150,17 +150,17 @@ namespace Litdex.Utilities.Extension
 		#region Rotate Right
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		/// as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static byte RotateRight(this byte value, byte shiftBit)
 		{
@@ -168,17 +168,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static short RotateRight(this short value, short shiftBit)
 		{
@@ -186,17 +186,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static ushort RotateRight(this ushort value, ushort shiftBit)
 		{
@@ -204,17 +204,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static int RotateRight(this int value, int shiftBit)
 		{
@@ -222,17 +222,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static uint RotateRight(this uint value, int shiftBit)
 		{
@@ -244,17 +244,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static long RotateRight(this long value, int shiftBit)
 		{
@@ -262,17 +262,17 @@ namespace Litdex.Utilities.Extension
 		}
 
 		/// <summary>
-		///		Rotates the specified value right by the specified number of bits.
+		///	Rotates the specified value right by the specified number of bits.
 		/// </summary>
 		/// <param name="value">
-		///		The value to rotate.
+		///	The value to rotate.
 		/// </param>
 		/// <param name="shiftBit">
-		///		The number of bits to rotate by. Any value outside the range [0..63] is treated
-		///		as congruent mod 64.
+		///	The number of bits to rotate by. Any value outside the range [0..63] is treated
+		///	as congruent mod 64.
 		/// </param>
 		/// <returns>
-		///		The rotated value.
+		///	The rotated value.
 		/// </returns>
 		public static ulong RotateRight(this ulong value, int shiftBit)
 		{

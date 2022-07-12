@@ -5,7 +5,7 @@ using System.Text;
 namespace Litdex.Utilities.BinaryEncoding
 {
 	/// <summary>
-	///		Converts between binary data and an Ascii85-encoded string.
+	///	Converts between binary data and an Ascii85-encoded string.
 	/// </summary>
 	/// <remarks>See <a href="http://en.wikipedia.org/wiki/Ascii85">Ascii85 at Wikipedia</a>.</remarks>
 	public static class Base85
@@ -16,16 +16,16 @@ namespace Litdex.Utilities.BinaryEncoding
 		private static readonly uint[] s_powersOf85 = new uint[] { 85u * 85u * 85u * 85u, 85u * 85u * 85u, 85u * 85u, 85u, 1 };
 
 		/// <summary>
-		///		Encodes the specified array of <see cref="byte"/>s in Ascii85.
+		///	Encodes the specified array of <see cref="byte"/>s in Ascii85.
 		/// </summary>
 		/// <param name="bytes">
-		///		Array of <see cref="byte"/>s to encode.
+		///	Array of <see cref="byte"/>s to encode.
 		///	</param>
 		/// <returns>
-		///		An Ascii85-encoded <see cref="string"/> representing the input byte array.
+		///	An Ascii85-encoded <see cref="string"/> representing the input byte array.
 		///	</returns>
 		/// <exception cref="ArgumentNullException">
-		///		<paramref name="bytes"/> is null or empty.
+		///	<paramref name="bytes"/> is null or empty.
 		/// </exception>
 		public static string Encode(byte[] bytes)
 		{
@@ -46,7 +46,7 @@ namespace Litdex.Utilities.BinaryEncoding
 				value |= ((uint)b) << (24 - (count * 8));
 				count++;
 
-				// every 32 bits, convert the previous 4 bytes into 5 Ascii85 characters
+				// every 32-bits, convert the previous 4 bytes into 5 Ascii85 characters
 				if (count == 4)
 				{
 					if (value == 0)
@@ -67,16 +67,16 @@ namespace Litdex.Utilities.BinaryEncoding
 		}
 
 		/// <summary>
-		///		Decodes the specified Ascii85 <see cref="string"/> into the corresponding array of <see cref="byte"/>s.
+		///	Decodes the specified Ascii85 <see cref="string"/> into the corresponding array of <see cref="byte"/>s.
 		/// </summary>
 		/// <param name="encoded">
-		///		The Ascii85 string.
+		///	The Ascii85 string.
 		///	</param>
 		/// <returns>
-		///		Array of <see cref="byte"/>s from decoded <paramref name="encoded"/>.	
+		///	Array of <see cref="byte"/>s from decoded <paramref name="encoded"/>.	
 		///	</returns>
 		///	<exception cref="ArgumentNullException">
-		///		
+		///	Encoded array of bytes can't null or empty.
 		/// </exception>
 		public static byte[] Decode(string encoded)
 		{

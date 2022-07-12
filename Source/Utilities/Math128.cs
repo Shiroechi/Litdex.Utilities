@@ -1,22 +1,22 @@
 ﻿namespace Litdex.Utilities
 {
 	/// <summary>
-	///		Provide 128 it math operations
+	///	Provide 128-bit math operations
 	/// </summary>
 	public static class Math128
 	{
 		/// <summary>
-		///		Do multiplication of 2 <see cref="ulong"/>.
+		///	Do multiplication of 2 <see cref="ulong"/>.
 		/// </summary>
 		/// <param name="x">
-		///		Number to multiply.
+		///	Number to multiply.
 		/// </param>
 		/// <param name="y">
-		///		Number to multiply.
+		///	Number to multiply.
 		/// </param>
 		/// <returns>
-		///		128-bit number, split into 2 <see cref="ulong"/>.
-		///		The first one is the high bit, the second one is low bit. 
+		///	128-bit number, split into 2 <see cref="ulong"/>.
+		///	The first one is the high bit, the second one is low bit. 
 		/// </returns>
 		public static (ulong, ulong) Multiply(ulong x, ulong y)
 		{

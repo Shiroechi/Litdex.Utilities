@@ -1,44 +1,34 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Authors>Shiroechi</Authors>
-    <Product>Litdex.Utilities</Product>
-    <Copyright>Shiroechi</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
-    <EnableNETAnalyzers>false</EnableNETAnalyzers>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageProjectUrl>https://github.com/Shiroechi/Litdex.Utilities</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Shiroechi/Litdex.Utilities</RepositoryUrl>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0</TargetFrameworks>
+    <Nullable>disable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <RepositoryType>git</RepositoryType>
-    <RootNamespace>Litdex</RootNamespace>
-    <Version>1.1.1</Version>
-    <PackageTags>Base16 Base85 Base91 Extension</PackageTags>
-    <Description>Utilities module for Litdex.</Description>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <EnforceCodeStyleInBuild>False</EnforceCodeStyleInBuild>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <Version>1.2.0</Version>
+    <Authors>Shiroechi</Authors>
     <Company>Litdex</Company>
-    <OutputType>Library</OutputType>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>.\Litdex.Utilities.xml</DocumentationFile>
-    <DebugType>none</DebugType>
-    <DebugSymbols>false</DebugSymbols>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>false</Optimize>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <Copyright>Shiroechi</Copyright>
+    <PackageProjectUrl>https://github.com/Shiroechi/Litdex.Utilities</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Shiroechi/Litdex.Utilities</RepositoryUrl>
+    <PackageTags>Binary Encoding; Array; Guid; Random; Extension;</PackageTags>
+    <PackageReleaseNotes>- Remove rab in documentation
+- Add .Net Standard 2.1 and .Net 5 upward compatibility
+- Change how to copy array in Concat method
+- Tweak Base16 algorithm
+- Add methods extension to choose random element from array and shuffle the array for System.Random</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="" />
+    <None Include="README.md" Pack="True" PackagePath="\" />
   </ItemGroup>
 
 </Project>
